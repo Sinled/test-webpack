@@ -14,19 +14,19 @@ arrow($bg, $size, $direction = top)
   border-color: rgba($bg, 0)
   border-width: $size
 
-  @if $direction == top
+  if $direction == top
     border-bottom-color: $bg
     margin-left: - $size
 
-  @if $direction == bottom
+  if $direction == bottom
     border-top-color: $bg
     margin-left: - $size
 
-  @if $direction == right
+  if $direction == right
     border-left-color: $bg
     margin-top: - $size
 
-  @if $direction == left
+  if $direction == left
     border-right-color: $bg
     margin-top: - $size
 
@@ -126,7 +126,7 @@ centered($position = center, $additional-transforms = false)
 
     if $additional-transforms
       transform: translate(-50%, -50%) $additional-transforms
-     @else
+     else
       transform: translate(-50%, -50%)
 
   if $position == vertical
@@ -134,7 +134,7 @@ centered($position = center, $additional-transforms = false)
 
     if $additional-transforms
       transform: translateY(-50%) $additional-transforms
-     @else
+     else
       transform: translateY(-50%)
 
   if $position == horizontal
@@ -142,7 +142,7 @@ centered($position = center, $additional-transforms = false)
 
     if $additional-transforms
       transform: translateX(-50%) $additional-transforms
-     @else
+     else
       transform: translateX(-50%)
 
 

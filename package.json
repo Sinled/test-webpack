@@ -10,7 +10,10 @@
   "author": "Sinled",
   "license": "ISC",
   "devDependencies": {
+    "autoprefixer": "^5.1.1",
+    "autoprefixer-core": "^5.1.11",
     "css-loader": "^0.12.0",
+    "postcss-loader": "^0.4.3",
     "style-loader": "^0.12.2",
     "stylus-loader": "^1.1.0",
     "webpack": "^1.8.11",
