@@ -4,13 +4,14 @@
 .page
   min-height: 100%
   box-sizing: border-box
-  padding: $base-padding * 2 0
+  padding-top: $base-padding * 4;
+  padding-bottom: $base-padding * 2;
   position: relative
 
   &:before
     parent-stretched()
-    top: $base-padding * 4
-    bottom: $base-padding * 2
+    top: @padding-top
+    bottom: @padding-bottom
     content: ''
     background: $second-background
 
