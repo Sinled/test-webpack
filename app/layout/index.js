@@ -1,5 +1,3 @@
-import styles from "./layout.styl";
+import layout from "./layout.js";
 
-export default () => {
-  window.document.write("test");
-}
+layout();
