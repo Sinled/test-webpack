@@ -84,10 +84,9 @@ $medium-font-size = 12px
 $default-font-size = 14px
 
 $base-font-size = 16px
-
-$vertycal-rhythm-offset = 24px
-$base-line-height-multiplier = ($vertycal-rhythm-offset / $base-font-size)
-$base-font = ($base-font-size \/ $base-line-height-multiplier) $base-font-family
+$base-line-height = 1.5
+$vertycal-rhythm-offset = $base-font-size * $base-line-height
+$base-font = $base-font-size \/ $base-line-height $base-font-family
 
 // # Content
 
