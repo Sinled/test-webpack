@@ -1,0 +1,79 @@
+@keyframes ellipsisLoader {
+  from {
+    width: 0;
+    margin-right: 0;
+  }
+  to {
+    width: 22px;
+    margin-right: -22px;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes inputError {
+  0% {
+    background: $form-input-error-bg;
+    box-shadow: inset 0 0 0 1px saturate(lighten($form-input-error-bg, 17%), 28%);
+  }
+
+  98% {
+    background: $form-input-error-bg;
+    box-shadow: inset 0 0 0 1px saturate(lighten($form-input-error-bg, 17%), 28%);
+  }
+
+  100% {
+    background: $form-input-base-bg;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0);
+  }
+}
+
+@mixin animated-link {
+  transition: color $default-transition-duration $default-transition-function,
+              text-shadow $default-transition-duration $default-transition-function,
+              opacity $default-transition-duration $default-transition-function;
+  color: $base-link-color;
+
+  &:visited {
+    color: $base-link-color;
+  }
+
+  &:focus,
+  &:hover {
+    color: $base-link-hover-color;
+  }
+
+  &:active {
+    color: $base-link-active-color;
+  }
+}
+
+@mixin ellipsis-play-animation {
+  animation: ellipsisLoader 2s steps(4) infinite;
+}
+
+@mixin fade-in-animation {
+  animation: fadeIn $default-transition-duration both;
+}
+
+@mixin animated-height {
+  transition: max-height $default-transition-duration $default-transition-function;
+}
+
+@mixin opacity-transform {
+  transition: opacity $default-transition-duration $default-transition-function,
+              transform $default-transition-duration $default-transition-function;
+}
+
+@mixin text-input-transition {
+  transition: color $default-transition-duration $default-transition-function,
+              box-shadow $default-transition-duration $default-transition-function,
+              background-color $default-transition-duration $default-transition-function;
+}

@@ -13,7 +13,7 @@ module.exports = {
       {test: /\.js$/, loader: "babel", exclude: /node_modules/},
       {test: /\.svg$/, loader: "url"},
       {test: /\.css$/, loader: "style!css"},
-      {test: /\.styl$/, loader: "style!css!postcss!stylus"}
+      {test: /\.scss$/, loader: "style!css!postcss!sass"}
     ]
   },
 

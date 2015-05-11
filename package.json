@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo 'testing'",
-    "start": "node node_modules/.bin/webpack-dev-server --content-base app"
+    "start": "npm install && node node_modules/.bin/webpack-dev-server --content-base app"
   },
   "author": "Sinled",
   "license": "ISC",
@@ -16,9 +16,10 @@
     "babel-loader": "^5.0.0",
     "css-loader": "^0.12.0",
     "file-loader": "^0.8.1",
+    "node-sass": "^3.0.0",
     "postcss-loader": "^0.4.3",
+    "sass-loader": "^1.0.1",
     "style-loader": "^0.12.2",
-    "stylus-loader": "^1.1.0",
     "url-loader": "^0.5.5",
     "webpack": "^1.8.11",
     "webpack-dev-server": "^1.8.2"

@@ -1,0 +1,114 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+@import "../../styles/typography";
+
+.page {
+  $padding-top: $base-padding * 4;
+  $padding-bottom: $base-padding * 2;
+  min-height: 100%;
+  box-sizing: border-box;
+  padding: $padding-top 0 $padding-bottom;
+  position: relative;
+  display: flex;
+
+  &:before {
+    @include parent-stretched();
+    content: '';
+    top: $padding-top;
+    bottom: $padding-bottom;
+    background: $second-background;
+  }
+}
+
+.page__container {
+  @include clearfix();
+  max-width: $content-maw;
+  margin: 0 auto;
+  position: relative;
+  z-index: $z-index-lvl-1;
+  display: flex;
+  flex-direction: column;
+}
+
+.columns {
+  display: flex;
+  flex: 1 0 auto;
+
+  @media screen and ($bp-tablet-medium-end) {
+    display: block;
+  }
+}
+
+.sidebar {
+  $padding-right:  $base-padding * 2;
+  $padding-left:  $base-padding * 4;
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  width: 280px;
+  order: -1;
+  position: relative;
+  padding: 0 $padding-right 0 $padding-left;
+  
+  &:before {
+    $width: .2rem;
+    content: '';
+    background: $bd-color;
+    position: absolute;
+    width: $width;
+    top: $base-padding * 4;
+    bottom: $base-padding * 2;
+    left: $padding-left - $width / 2;
+  }
+}
+
+.content {
+  background: $content-bg;;
+  padding: $base-padding * 2 $base-padding * 2 $base-padding * 2 $base-padding * 8;
+  flex: 1 1 auto;
+}
+
+.person {
+  @include clearfix();
+  padding:$base-padding * 2 $base-padding * 2 $base-padding * 2 $base-padding * 4;
+}
+
+.person__avatar {
+  float: left;
+  margin-right: $base-padding * 8;
+  position: relative;
+  width: 200px;
+
+  &:after {
+    @include parent-stretched();
+    content: '';
+    border: 4px solid $bd-color;;
+    z-index: $z-index-lvl-1;;
+    border-radius: 50%;
+    box-shadow: inset 0 0 1px 2px $second-background;
+  }
+
+  > img {
+    display: block;
+    border-radius: 50%;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.person__text-column {
+  overflow: hidden;
+}
+
+.person__title {
+  @include h1();
+  margin: 0 0 $vertycal-rhythm-offset;
+}
+
+.person__subtitle {
+  @include sub-title();
+  display: block;
+
+  .person__title > & {
+    padding-top: 10px;
+  }
+}
