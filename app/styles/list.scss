@@ -1,0 +1,23 @@
+@import "mixins";
+
+
+@mixin base-list {
+  @include clearfix();
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.list {
+  @include base-list();
+
+  > li {
+    margin-bottom: $vertycal-rhythm-offset;
+  }
+}
+
+.items-list {
+  @include no-last-margin();
+
+  margin-bottom: $vertycal-rhythm-offset;
+}

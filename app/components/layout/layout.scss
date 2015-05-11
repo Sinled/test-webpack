@@ -1,6 +1,8 @@
 @import "../../styles/variables";
 @import "../../styles/mixins";
 @import "../../styles/typography";
+@import "../../styles/icons";
+@import "../../styles/list";
 
 .page {
   $padding-top: $base-padding * 4;
@@ -34,7 +36,7 @@
   display: flex;
   flex: 1 0 auto;
 
-  @media screen and ($bp-tablet-medium-end) {
+  @media screen and (#{$bp-tablet-medium-end}) {
     display: block;
   }
 }
@@ -62,30 +64,23 @@
 }
 
 .content {
-  background: $content-bg;;
-  padding: $base-padding * 2 $base-padding * 2 $base-padding * 2 $base-padding * 8;
+  background: $content-bg;
+  padding: $base-padding * 2 $base-padding * 4 $base-padding * 2 $base-padding * 8;
   flex: 1 1 auto;
 }
 
 .person {
   @include clearfix();
-  padding:$base-padding * 2 $base-padding * 2 $base-padding * 2 $base-padding * 4;
+  padding: $base-padding * 2 $base-padding * 2 $base-padding * 2 $base-padding * 4;
 }
 
+
 .person__avatar {
+  @include rounded-item();
   float: left;
   margin-right: $base-padding * 8;
   position: relative;
   width: 200px;
-
-  &:after {
-    @include parent-stretched();
-    content: '';
-    border: 4px solid $bd-color;;
-    z-index: $z-index-lvl-1;;
-    border-radius: 50%;
-    box-shadow: inset 0 0 1px 2px $second-background;
-  }
 
   > img {
     display: block;
@@ -109,6 +104,60 @@
   display: block;
 
   .person__title > & {
-    padding-top: 10px;
+    padding-top: 1rem;
   }
+}
+
+.experience-block {
+  margin: 0 0 $vertycal-rhythm-offset * 2;
+}
+
+.experience-block__title {
+  @include h2();
+  margin: 0 0 $vertycal-rhythm-offset;
+  position: relative;
+}
+
+.title-icon {
+  @include rounded-icon(5rem, 3px, 2px);
+  @include centered(vertical);
+  right: 100%;
+  margin-right: 1rem;
+}
+
+.experience-block__item {
+  @include no-last-margin();
+
+  p {
+    margin: 0;
+  }
+}
+
+.experience-block__item__column {
+  float: left;
+  width: 50%;
+
+  @media screen and (#{$bp-tablet-medium-end}) {
+    float: none;
+  }
+}
+
+.experience-block__item__title {
+  @include h3();
+  margin: 0;
+}
+
+.experience-block__sub-title {
+  @include h4();
+  margin: 0;
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.experience-block__item__title__more {
+  float: right;
+  margin-left: 1rem;
 }
