@@ -1,5 +1,7 @@
 @import "../../styles/variables.styl"
 @import "../../styles/mixins.styl"
+@import "../../styles/typography.styl"
+
 
 .page
   min-height: 100%
@@ -7,17 +9,17 @@
   padding-top: $base-padding * 4;
   padding-bottom: $base-padding * 2;
   position: relative
+  display: flex
 
   &:before
-    parent-stretched()
+    _parent-stretched()
     top: @padding-top
     bottom: @padding-bottom
     content: ''
     background: $second-background
 
-
 .page__container
-  clearfix()
+  _clearfix()
   max-width: $content-maw
   margin: 0 auto
   position: relative
@@ -34,10 +36,13 @@
     display: block
 
 .sidebar
+  box-sizing: border-box
   flex: 0 0 auto
-  width: 240px
+  width: 280px
   order: -1
   position: relative
+  padding-right: $base-padding * 2
+  padding-left: $base-padding * 4
 
   &:before
     content: ''
@@ -46,24 +51,28 @@
     width: 2px
     top: $base-padding * 4
     bottom: $base-padding * 2
-    left: 0
+    left: @padding-left - @width / 2
+    
 
 .content
   background: $content-bg;
   padding: $base-padding * 2 $base-padding * 2  $base-padding * 2 $base-padding * 8 ;
+  flex: 1 1 auto
+
 
 .person
-  clearfix()
+  _clearfix()
   padding: $base-padding * 2 $base-padding * 2 $base-padding * 2 $base-padding * 4
+
 
 .person__avatar
   float: left
-  margin-right: $base-padding * 4
+  margin-right: $base-padding * 8
   position: relative
   width: 200px
 
   &:after
-    parent-stretched()
+    _parent-stretched()
     content: ''
     border: 4px solid $bd-color;
     z-index: $z-index-lvl-1;
@@ -82,4 +91,12 @@
   overflow: hidden
 
 .person__title
+  _h1()
   margin: 0 0 $vertycal-rhythm-offset
+
+.person__subtitle
+  _sub-title()
+  display: block
+
+  .person__title > &
+    padding-top: 10px

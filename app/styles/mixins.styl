@@ -1,11 +1,11 @@
-clearfix()
+_clearfix()
   &:after
     content: ''
     display: table
     clear: both
 
 
-arrow($bg, $size, $direction = top)
+_arrow($bg, $size, $direction = top)
   border: solid transparent
   content: ' '
   height: 0
@@ -31,24 +31,24 @@ arrow($bg, $size, $direction = top)
     margin-top: - $size
 
 
-placeholder($params, $hideOnFocus = false, $duration = 0.5s)
+_placeholder($params, $hideOnFocus = false, $duration = 0.5s)
   &::placeholder
-    color: $params;
+    color: $params
 
   @if $hideOnFocus
     &:focus
       &::placeholder
-        opacity: 0;
-        transition: opacity $duration $duration ease;
+        opacity: 0
+        transition: opacity $duration $duration ease
 
 
-inline-block($position = middle)
-  vertical-align: $position;
-  display: inline-block;
+_inline-block($position = middle)
+  vertical-align: $position
+  display: inline-block
 
 
-button-reset()
-  inline-block(middle)
+_button-reset()
+  _inline-block(middle)
   box-sizing: content-box
   outline: none
   border: none
@@ -63,11 +63,11 @@ button-reset()
   text-decoration: none
 
 
-button()
-  button-reset()
+_button()
+  _button-reset()
 
 
-text-input-defaults()
+_text-input-defaults()
   text-input-transition()
   box-sizing: border-box
   margin: 0
@@ -80,11 +80,11 @@ text-input-defaults()
   color: $base-color
 
 
-input-text()
+_input-text()
   overflow: hidden
 
-  text-inputs()
-    text-input-defaults()
+  input
+    _text-input-defaults()
 
   textarea
     width: 100% !important
@@ -92,32 +92,32 @@ input-text()
     min-height: 126px
 
 
-flex-image()
+_flex-image()
   display: block
   height: auto
 
 
-flex-image-container()
+_flex-image-container()
   > img
     display: block
     width: 100%
     height: auto
 
 
-opacity-panel($color = $black, $opacity = .75)
+_opacity-panel($color = $black, $opacity = .75)
   background: rgba($color, $opacity)
 
 
-muted-element($opacity = .4)
+_muted-element($opacity = .4)
   opacity: $opacity
 
 
-no-last-margin($position = bottom)
+_no-last-margin($position = bottom)
   > *:last-child
     margin-$position: 0
 
 
-centered($position = center, $additional-transforms = false)
+_centered($position = center, $additional-transforms = false)
   position: absolute
 
   if $position == center
@@ -146,15 +146,15 @@ centered($position = center, $additional-transforms = false)
       transform: translateX(-50%)
 
 
-parent-stretched()
+_parent-stretched($t = 0, $r = 0, $b = 0, $l = 0)
   position: absolute
-  left: 0
-  top: 0
-  bottom: 0
-  right: 0
+  top: $t
+  right: $r
+  bottom: $b
+  left: $l
 
 
-increase-clickable-area()
+_increase-clickable-area($click-additional-area-size = 10px)
   content: ''
   position: absolute
   left: - $click-additional-area-size
@@ -163,29 +163,28 @@ increase-clickable-area()
   top: - $click-additional-area-size
 
 
-square-block-base()
+_rectangle-block-base()
   content: ''
   display: block
 
 
-square-block()
-  square-block-base()
-  padding-top: 100%
+_rectangle-block($ratio = 1)
+  _rectangle-block-base()
+  padding-top: $ratio * 100%
 
 
-empty-hidden()
+_empty-hidden()
   &:empty
     display: none
 
 
-
-ellipsis()
+_ellipsis()
   overflow: hidden
   text-overflow: ellipsis
 
 
-cropped-text($display = false)
-  ellipsis()
+_cropped-text($display = false)
+  _ellipsis()
   white-space: nowrap
 
   if $display
